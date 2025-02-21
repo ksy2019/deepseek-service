@@ -1,0 +1,7 @@
+FROM registry.cn-hangzhou.aliyuncs.com/spike1989/node:18-bullseye-slim
+WORKDIR /app
+COPY . .
+RUN npm i 
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo 'Asia/Shanghai' >/etc/timezone
+CMD [ "node", "main.js" ]
